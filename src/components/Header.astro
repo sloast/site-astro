@@ -1,0 +1,67 @@
+---
+import slogo from "../assets/slogo.svg";
+import slogo_full from "../assets/slogo_full.svg";
+---
+
+<header x-data="{wide:true}" , x-resize="wide = $width > 800">
+    <div class="root">
+        <a href="/" class="logo-container nohl">
+            <img
+                :src={`wide ? '${slogo_full.src}' : '${slogo.src}'`}
+                class="logo"
+                alt="Sloast Logo"
+            />
+        </a>
+        <p x-show="wide">[ now in astro! ]</p>
+    </div>
+    <div class="symbol-of-tolerance"></div>
+</header>
+
+<style>
+    .root {
+        position: sticky;
+        display: flex;
+        padding: 1rem;
+        gap: 1rem;
+        background-color: var(--bg-light);
+        align-items: center;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .symbol-of-tolerance {
+        height: 0.25em;
+        background: linear-gradient(
+            90deg,
+            #ea392f 0% 11.111%,
+            #f28917 11.111% 22.222%,
+            #eecb12 22.222% 33.333%,
+            #78b82a 33.333% 44.444%,
+            #4375ca 44.444% 55.556%,
+            #c346e3 55.556% 66.667%,
+            #7bcce5 66.667% 77.778%,
+            #eaeaea 77.778% 88.889%,
+            #f4aec8 88.889% 100%
+        );
+    }
+
+    .logo-container {
+        height: 3em;
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+
+    .logo {
+        height: 3em;
+        filter: drop-shadow(0 0 1.5em #00e436);
+        aspect-ratio: auto;
+        transition: all;
+        transition-duration: 250ms;
+    }
+
+    .logo:hover {
+        filter: drop-shadow(0 0 1.5em white);
+    }
+</style>

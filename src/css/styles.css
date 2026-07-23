@@ -1,0 +1,31 @@
+:root {
+    font-family:
+        "Source Code Pro", monospace, system-ui, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: dark;
+    color: rgba(255, 255, 255, 0.85);
+
+    /* background-color: oklch(0.21 0.034 264.665); */
+
+    --bg-dark: #101828;
+    --bg-light: #1e2939;
+
+    --rad: 0.5rem;
+
+    background-color: var(--bg-dark);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a:hover {
+    background-color: aqua;
+}
+
+a.nohl:hover {
+    background-color: transparent;
+}
