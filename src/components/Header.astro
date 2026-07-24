@@ -3,13 +3,21 @@ import slogo from "../assets/slogo.svg";
 import slogo_full from "../assets/slogo_full.svg";
 ---
 
-<header x-data="{wide:true}" , x-resize="wide = $width > 800">
+<header x-data="{wide:true}" x-resize="wide = $width > 800">
     <div class="root">
         <a href="/" class="logo-container nohl">
             <img
-                :src={`wide ? '${slogo_full.src}' : '${slogo.src}'`}
+                src={slogo_full.src}
                 class="logo"
                 alt="Sloast Logo"
+                x-show="wide"
+            />
+            <img
+                src={slogo.src}
+                class="logo"
+                alt="Sloast Logo"
+                x-show="!wide"
+                style="display:none"
             />
         </a>
         <p x-show="wide">[ now in astro! ]</p>
@@ -25,6 +33,7 @@ import slogo_full from "../assets/slogo_full.svg";
         gap: 1rem;
         background-color: var(--bg-light);
         align-items: center;
+        justify-content: space-between;
     }
 
     p {
@@ -50,7 +59,7 @@ import slogo_full from "../assets/slogo_full.svg";
     .logo-container {
         height: 3em;
         flex-basis: 0;
-        flex-grow: 1;
+        flex-grow: 0;
     }
 
     .logo {

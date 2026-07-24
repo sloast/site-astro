@@ -1,17 +1,82 @@
 ---
+import cubu_disk from "../assets/cubu_disk.png";
+import derail from "../assets/derail.png";
+import squares_shader from "../assets/squares_shader.png";
+
 import Shader from "../components/Shader.astro";
 import Layout from "../layouts/Layout.astro";
+import Project from "../components/Project.astro";
 ---
 
 <Layout>
 	<Shader />
+	<div class="page">
+		<h2 style="padding-top: 1rem">recent things</h2>
+		<p class="subtitle">
+			click a card to visit the project. more coming soon...
+		</p>
 
-	<p>// site under construction //</p>
+		<Project
+			title="cubu"
+			href="https://sloast.dev/cubu"
+			img={cubu_disk.src}
+		>
+			a project to create a unix-compatible block device where all the
+			data is stored on rubik's cubes. also has an interactive cube
+			solver.
+		</Project>
+
+		<Project
+			title="derail valley mods"
+			href="https://next.nexusmods.com/profile/sloast/mods"
+			img={derail.src}
+			bgPosition="top"
+		>
+			<a href="https://www.derailvalley.com/">derail valley</a> is a train simulation
+			game by <a href="https://www.altfuture.gg/">altfuture</a>. my derail
+			valley mods are available on <a href="https://github.com/sloast/"
+				>github</a
+			> and <a href="https://next.nexusmods.com/profile/sloast/mods"
+				>nexus</a
+			>.
+		</Project>
+
+		<Project
+			title="shaders"
+			href="https://www.shadertoy.com/user/adaad"
+			img={squares_shader.src}
+			bgPosition="bottom"
+		>
+			shader art is code that runs on your gpu to generate dynamic,
+			interactive digital art. examples are the visuals above and right
+			here. i've written a few on
+			<a href="https://www.shadertoy.com/"> shadertoy</a>.
+		</Project>
+
+		<Project title="methods" wip>
+			an app to help with learning <a
+				href="https://en.wikipedia.org/wiki/Method_ringing"
+				>change ringing methods</a
+			>.
+		</Project>
+
+		<p class="subtitle" style={{ padding: "2rem" }}>
+			// site under construction //
+		</p>
+	</div>
 </Layout>
 
 <style>
-	p {
+	p,
+	h2 {
+		padding: 0.5rem;
 		text-align: center;
-		padding: 2rem;
+	}
+
+	.page {
+		max-width: 1000px;
+		margin: auto;
+		margin-top: 0;
+		background-color: var(--bg-dark);
 	}
 </style>

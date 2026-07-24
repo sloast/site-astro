@@ -1,0 +1,143 @@
+---
+const { title, href, img, bgPosition = "center", wip=false } = Astro.props;
+---
+
+<section onclick={href ? `window.location.href = "${href}"` : ''}>
+    <div class="hrzntl">
+        {
+            img != null ? (
+                <aside
+                    class="img"
+                    style={{
+                        "background-image": `url("${img}")`,
+                        "background-position": bgPosition,
+                    }}
+                />
+            ) : (
+                <aside class="img"><p class="subtitle">// no image yet //</p></aside>
+                <style>
+                    aside {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        
+                        text-align: center;
+                        text-wrap: balance;
+
+                        background-color: var(--bg-dark);
+                    }
+                </style>
+            )
+        }
+        <div class="content">
+            <div class="title">
+                <h3>
+                    {href ? <a href={href}>{title}</a> : title} {wip ? <span class="wip">// WIP</span> : ''}
+                </h3>
+            </div>
+            <p class="p1"><slot /></p>
+        </div>
+    </div>
+    <p class="p2"><slot /></p>
+</section>
+
+<style>
+    section {
+        margin: 1rem;
+        z-index: 0;
+
+        background-color: var(--bg-dark);
+        border: 2px solid #699bf1;
+        border-radius: 0.75rem;
+        overflow: hidden;
+
+        transition: box-shadow 250ms;
+    }
+
+    section:hover {
+        box-shadow: 0 0 1.5rem #00e436;
+    }
+
+    .hrzntl {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .content {
+        flex-grow: 1;
+        flex-basis: 30rem;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p1 {
+        display: block;
+    }
+    .p2 {
+        display: none;
+        flex-grow: 1;
+    }
+
+    .img {
+        flex-grow: 1;
+        border-radius: 0.5rem;
+        aspect-ratio: 2 / 1;
+        flex-basis: 20rem;
+
+        z-index: 1;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .title {
+        margin-left: -10px;
+        padding-left: 10px;
+        background-color: #13233f;
+    }
+
+    h3 {
+        padding: 0.5rem;
+        padding-left: 1rem;
+    }
+
+    h3 > a {
+        color: var(--text);
+    }
+
+    h3 > a:hover {
+        color: black;
+    }
+
+    p {
+        padding: 0.5rem 1rem;
+    }
+
+    @media (width <= 600) {
+        .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 1.25rem;
+        }
+
+        .p1 {
+            display: none;
+        }
+        .p2 {
+            display: block;
+        }
+    }
+
+    .wip {
+        color: oklch(0.551 0.027 264.364);
+    }
+</style>

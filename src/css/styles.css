@@ -1,19 +1,22 @@
 :root {
     font-family:
         "Source Code Pro", monospace, system-ui, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
+    line-height: 1.25;
+    font-weight: normal;
 
     color-scheme: dark;
-    color: rgba(255, 255, 255, 0.85);
 
     /* background-color: oklch(0.21 0.034 264.665); */
+    --text: rgba(255, 255, 255, 0.85);
 
     --bg-dark: #101828;
     --bg-light: #1e2939;
 
     --rad: 0.5rem;
 
+    color: var(--text);
+
+    /* background-color: #0d111a; */
     background-color: var(--bg-dark);
 
     font-synthesis: none;
@@ -22,10 +25,52 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+    color: #58aeff;
+    text-decoration: inherit;
+}
+
 a:hover {
-    background-color: aqua;
+    background-color: rgb(26, 252, 146);
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 a.nohl:hover {
     background-color: transparent;
+    color: var(--text);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+@media (width >=1000px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+}
+
+.subtitle {
+    color: oklch(0.551 0.027 264.364);
+    font-weight: 600;
 }
