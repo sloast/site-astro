@@ -5,7 +5,7 @@ import alpinejs from '@astrojs/alpinejs';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://astro.sloast.dev',
+    site: 'https://sloast.dev',
     integrations: [
         alpinejs({ entrypoint: '/src/js/entrypoint' }),
     ],
